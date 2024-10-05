@@ -27,5 +27,17 @@ fs.readFile('./simple.txt', 'utf8', (err, data) => {
             return;
         }
         console.log('File has been updated.');
+
+        // Here we are appending new information to the file. 
+        // We are nesting this append function within the write file so that it does not get completed first (node is asynchronous)
+        const newInfo = 'I am a musician that is learning how to play new instruments'
+
+        fs.appendFile('./simple.txt', newInfo, (err) => {
+            if (err) {
+                console.error('Error appending to file', err);
+                return;
+            }
+            console.log('Data has been appended to the file')
+        })
     });
 }) 
