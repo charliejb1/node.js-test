@@ -41,3 +41,5 @@ fs.readFile('./simple.txt', 'utf8', (err, data) => {
         })
     });
 }) 
+
+
